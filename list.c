@@ -1,31 +1,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct node {
+struct node {
     int data;
     struct node *next;
-} node;
+};
 
-void free_list(node *first) {
-    node *it = first;
+void free_list(struct node *first) {
+    struct node *it = first;
     while (it != NULL) {
       free(it);
       it = it->next;
     }
 }
 
-void print_list(node *first) {
+void print_list(struct node *first) {
     printf("{");
-    for (node *it = first; it != NULL; it = it->next) {
+    for (struct node *it = first; it != NULL; it = it->next) {
         if (it != first) printf(",");
         printf("%d", it->data);
     }
     printf("}\n");
 }
 
-node *create_29_list(void) {
-    node *first = malloc(sizeof(node));
-    node *second = malloc(sizeof(node));
+struct node *create_29_list(void) {
+    struct node *first = malloc(sizeof(struct node));
+    struct node *second = malloc(sizeof(struct node));
 
     first->data = 2;
     second->data = 9;
@@ -36,7 +36,7 @@ node *create_29_list(void) {
 }
 
 int main(void) {
-    node *ourlist = create_29_list();
+    struct node *ourlist = create_29_list();
     print_list(ourlist);
     ourlist = NULL;
 }
