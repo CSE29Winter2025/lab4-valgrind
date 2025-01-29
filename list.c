@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 typedef struct node {
-    int item;
+    int data;
     struct node *next;
 } node;
 
@@ -18,7 +18,7 @@ void print_list(node *first) {
     printf("{");
     for (node *it = first; it != NULL; it = it->next) {
         if (it != first) printf(",");
-        printf("%d", it->item);
+        printf("%d", it->data);
     }
     printf("}\n");
 }
@@ -27,8 +27,8 @@ node *create_29_list(void) {
     node *first = malloc(sizeof(node));
     node *second = malloc(sizeof(node));
 
-    first->item = 2;
-    second->item = 9;
+    first->data = 2;
+    second->data = 9;
     first->next = second;
     second->next = NULL;
 
