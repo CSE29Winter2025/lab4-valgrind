@@ -27,6 +27,8 @@ int **add_square_matrices(int **a, int **b, int n) {
   return c;
 }
 
+void free_matrix(int **mat);
+
 int main(int argc, char *argv[]) {
   int **a = malloc(sizeof(int *) * 3);
   int **b = malloc(sizeof(int *) * 3);
@@ -59,5 +61,12 @@ int main(int argc, char *argv[]) {
   int **c = add_square_matrices(a, b, 3);
   print_matrix(c, 3, 3);
 
-  // add your free code here
+  free_matrix(a);
+  free_matrix(b);
+  free_matrix(c);
 }
+
+void free_matrix(int **mat) {
+  // your free code here
+}
+
