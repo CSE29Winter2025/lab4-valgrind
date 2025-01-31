@@ -9,8 +9,9 @@ struct node {
 void free_list(struct node *first) {
     struct node *it = first;
     while (it != NULL) {
-      free(it);
+      struct node *victim = it;
       it = it->next;
+      free(victim);
     }
 }
 
@@ -38,5 +39,5 @@ struct node *create_29_list(void) {
 int main(void) {
     struct node *ourlist = create_29_list();
     print_list(ourlist);
-    ourlist = NULL;
+    free_list(ourlist);
 }

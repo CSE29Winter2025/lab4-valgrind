@@ -68,5 +68,11 @@ int main(int argc, char *argv[]) {
 
 void free_matrix(int **mat) {
   // your free code here
+  unsigned int size = 3;
+  for (int i = 0; i < size; i++) {
+      free(mat[i]);
+  }
+  free(mat);
+  mat = NULL;
 }
 
