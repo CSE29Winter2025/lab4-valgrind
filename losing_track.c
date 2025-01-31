@@ -24,8 +24,9 @@ char *getQueries(char *url) {
 }
 
 int main(int argc, char *argv[]) {
-  char s[] = "https://example.com/over/there?name=ferret";
+  char s[] = "https://example.com/over/there?Name=Ferret";
 
+  //expect output to be name=ferret
   char *queries = getQueries(s);
   printf("%s\n", queries);
 
