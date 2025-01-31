@@ -10,6 +10,7 @@ char *getQueries(char *url) {
   for (int i = 0; i < strlen(url); i++) {
     query[i] = tolower(url[i]);
   }
+  query[strlen(url)] = '\0';
 
   // search for ?
   char *ptr = query;
